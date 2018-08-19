@@ -40,3 +40,50 @@ def makeGroup():
       personId = None
       print(r.json()["error"])
     return personId
+
+  # 画像をpersonにセットする
+  def addFaceToPerson(personId, imageUrl):
+    """
+    PersonにFaceを追加
+    params:
+        - personId:
+        - imageUrl: personに追加したい画像URL
+    return:
+    """
+    if personId != None:
+      end_point = BASE_URL + "persongroups/" + GROUP_NAME + "/persons" + personId + "/persistedFaces"
+      print(end_point)
+      headers = {"Ocp_Apim-Subscription-Key" :SUBSCRIPTION_KEY}
+      payload = {
+        "url" = imageUrl
+      }
+      r = requests.post(
+          end_point,
+          headers = headers,
+          json = payload
+      )
+      try:
+        print("Successfuly added face to person")
+        persistedFaceId = r.json()
+      except Exception as e:
+        print("Failed to add a face to person")
+        print(e)
+        persistedFaceId = None
+      return persistedFaceId
+
+    else:
+      print("personId is not set.")
+      return None
+
+
+
+
+
+
+
+
+
+
+
+
+
