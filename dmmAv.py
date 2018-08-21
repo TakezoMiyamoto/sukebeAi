@@ -2,8 +2,8 @@ import pandas as pd
 import requests
 
 # DMMアフェリエイトIDとAPI IDの指定
-DMM_AFFILIATE_ID = ""
-DMM_API_ID = ""
+DMM_AFFILIATE_ID = "takezo1987-001"
+DMM_API_ID = "6UveBVsEE6mhmFuXSqaZ"
 API_END_POINT = "https://api.dmm.com/affiliate/v3/ActressSearch?api_id=" + DMM_API_ID + "&affiliate_id" + DMM_AFFILIATE_ID + "&keyword={}" + "&output=json"
 
 # カウンター で何件取得できたか数える
